@@ -100,7 +100,7 @@ const Index = () => {
             <div className="flex gap-8">
               <button
                 onClick={() => scrollToSection('home')}
-                className={`text-sm font-medium transition-colors hover:text-primary ${
+                className={`text-sm font-medium transition-all duration-300 hover:text-primary hover:scale-110 ${
                   activeSection === 'home' ? 'text-primary' : 'text-muted-foreground'
                 }`}
               >
@@ -108,7 +108,7 @@ const Index = () => {
               </button>
               <button
                 onClick={() => scrollToSection('laws')}
-                className={`text-sm font-medium transition-colors hover:text-primary ${
+                className={`text-sm font-medium transition-all duration-300 hover:text-primary hover:scale-110 ${
                   activeSection === 'laws' ? 'text-primary' : 'text-muted-foreground'
                 }`}
               >
@@ -116,7 +116,7 @@ const Index = () => {
               </button>
               <button
                 onClick={() => scrollToSection('examples')}
-                className={`text-sm font-medium transition-colors hover:text-primary ${
+                className={`text-sm font-medium transition-all duration-300 hover:text-primary hover:scale-110 ${
                   activeSection === 'examples' ? 'text-primary' : 'text-muted-foreground'
                 }`}
               >
@@ -124,7 +124,7 @@ const Index = () => {
               </button>
               <button
                 onClick={() => scrollToSection('videos')}
-                className={`text-sm font-medium transition-colors hover:text-primary ${
+                className={`text-sm font-medium transition-all duration-300 hover:text-primary hover:scale-110 ${
                   activeSection === 'videos' ? 'text-primary' : 'text-muted-foreground'
                 }`}
               >
@@ -161,7 +161,7 @@ const Index = () => {
           <h2 className="text-4xl font-bold text-center mb-16">Три закона Ньютона</h2>
           <div className="grid gap-8 md:grid-cols-3">
             {laws.map((law, index) => (
-              <Card key={index} className="hover:shadow-xl transition-shadow animate-fade-in">
+              <Card key={index} className="hover:shadow-xl hover:-translate-y-2 transition-all duration-300 animate-fade-in">
                 <CardContent className="p-8">
                   <div className="mb-6">
                     <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-4">
@@ -196,7 +196,7 @@ const Index = () => {
           </p>
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {examples.map((example, index) => (
-              <Card key={index} className="hover:shadow-lg transition-shadow animate-fade-in">
+              <Card key={index} className="hover:shadow-lg hover:-translate-y-1 transition-all duration-300 animate-fade-in">
                 <CardContent className="p-6">
                   <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
                     <Icon name={example.icon} size={24} className="text-primary" />
@@ -223,7 +223,7 @@ const Index = () => {
           </p>
           <div className="grid gap-8 md:grid-cols-2">
             {videos.map((video, index) => (
-              <Card key={index} className="overflow-hidden animate-fade-in">
+              <Card key={index} className="overflow-hidden hover:shadow-xl hover:-translate-y-2 transition-all duration-300 animate-fade-in">
                 <CardContent className="p-0">
                   <div className="aspect-video">
                     <iframe
