@@ -1,12 +1,263 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { useState } from 'react';
+import { Card, CardContent } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import Icon from '@/components/ui/icon';
 
 const Index = () => {
+  const [activeSection, setActiveSection] = useState('home');
+
+  const scrollToSection = (id: string) => {
+    setActiveSection(id);
+    const element = document.getElementById(id);
+    element?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const laws = [
+    {
+      number: 1,
+      title: 'Первый закон Ньютона',
+      subtitle: 'Закон инерции',
+      description: 'Всякое тело продолжает удерживаться в состоянии покоя или равномерного прямолинейного движения, пока и поскольку оно не понуждается приложенными силами изменить это состояние.',
+      formula: 'ΣF = 0 ⇒ v = const',
+      icon: 'Rocket'
+    },
+    {
+      number: 2,
+      title: 'Второй закон Ньютона',
+      subtitle: 'Основной закон динамики',
+      description: 'Ускорение тела прямо пропорционально приложенной к нему силе и обратно пропорционально его массе. Сила равна произведению массы на ускорение.',
+      formula: 'F = ma',
+      icon: 'Zap'
+    },
+    {
+      number: 3,
+      title: 'Третий закон Ньютона',
+      subtitle: 'Закон действия и противодействия',
+      description: 'Действию всегда есть равное и противоположное противодействие. Силы, с которыми два тела действуют друг на друга, равны по модулю и противоположны по направлению.',
+      formula: 'F₁ = -F₂',
+      icon: 'ArrowLeftRight'
+    }
+  ];
+
+  const examples = [
+    {
+      title: 'Движение автомобиля',
+      law: 'Первый закон',
+      description: 'Когда автомобиль резко тормозит, пассажиры продолжают двигаться вперёд по инерции. Поэтому необходимо пристёгиваться ремнём безопасности.',
+      icon: 'Car'
+    },
+    {
+      title: 'Запуск ракеты',
+      law: 'Второй закон',
+      description: 'Чем больше масса ракеты, тем большая сила двигателя нужна для её ускорения. Ускорение обратно пропорционально массе.',
+      icon: 'Rocket'
+    },
+    {
+      title: 'Отдача при выстреле',
+      law: 'Третий закон',
+      description: 'При выстреле из ружья пуля летит вперёд, а стрелок ощущает отдачу назад. Это проявление равных и противоположных сил.',
+      icon: 'Target'
+    },
+    {
+      title: 'Ходьба человека',
+      law: 'Третий закон',
+      description: 'Когда мы идём, мы отталкиваемся ногой от земли назад, а земля толкает нас вперёд с равной силой.',
+      icon: 'FootprintsIcon'
+    },
+    {
+      title: 'Плавание',
+      law: 'Третий закон',
+      description: 'Пловец отталкивает воду назад, и вода толкает его вперёд. Действие и противодействие.',
+      icon: 'Waves'
+    },
+    {
+      title: 'Торможение поезда',
+      law: 'Второй закон',
+      description: 'Чем больше масса поезда, тем больший тормозной путь ему требуется при одинаковой силе торможения.',
+      icon: 'Train'
+    }
+  ];
+
+  const videos = [
+    {
+      title: 'Законы Ньютона простыми словами',
+      url: 'https://www.youtube.com/embed/kKKM8Y-u7ds',
+      description: 'Понятное объяснение всех трёх законов Ньютона с наглядными примерами'
+    },
+    {
+      title: 'Эксперименты с законами Ньютона',
+      url: 'https://www.youtube.com/embed/1ksm2u0AAII',
+      description: 'Интересные физические эксперименты, демонстрирующие законы механики'
+    }
+  ];
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4 color-black text-black">Добро пожаловать!</h1>
-        <p className="text-xl text-gray-600">тут будет отображаться ваш проект</p>
-      </div>
+    <div className="min-h-screen bg-white">
+      <nav className="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-sm border-b z-50">
+        <div className="max-w-7xl mx-auto px-6 py-4">
+          <div className="flex items-center justify-between">
+            <h1 className="text-2xl font-bold text-primary">Законы Ньютона</h1>
+            <div className="flex gap-8">
+              <button
+                onClick={() => scrollToSection('home')}
+                className={`text-sm font-medium transition-colors hover:text-primary ${
+                  activeSection === 'home' ? 'text-primary' : 'text-muted-foreground'
+                }`}
+              >
+                Главная
+              </button>
+              <button
+                onClick={() => scrollToSection('laws')}
+                className={`text-sm font-medium transition-colors hover:text-primary ${
+                  activeSection === 'laws' ? 'text-primary' : 'text-muted-foreground'
+                }`}
+              >
+                Законы
+              </button>
+              <button
+                onClick={() => scrollToSection('examples')}
+                className={`text-sm font-medium transition-colors hover:text-primary ${
+                  activeSection === 'examples' ? 'text-primary' : 'text-muted-foreground'
+                }`}
+              >
+                Примеры
+              </button>
+              <button
+                onClick={() => scrollToSection('videos')}
+                className={`text-sm font-medium transition-colors hover:text-primary ${
+                  activeSection === 'videos' ? 'text-primary' : 'text-muted-foreground'
+                }`}
+              >
+                Видео
+              </button>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <section id="home" className="pt-32 pb-20 px-6">
+        <div className="max-w-4xl mx-auto text-center animate-fade-in">
+          <h2 className="text-5xl md:text-6xl font-bold mb-6 text-foreground">
+            Три закона, изменившие мир
+          </h2>
+          <p className="text-xl text-muted-foreground leading-relaxed mb-8 max-w-2xl mx-auto">
+            Исаак Ньютон сформулировал три фундаментальных закона механики,
+            которые легли в основу классической физики и описывают движение
+            всех объектов — от яблок до планет.
+          </p>
+          <Button
+            size="lg"
+            onClick={() => scrollToSection('laws')}
+            className="gap-2"
+          >
+            Изучить законы
+            <Icon name="ArrowDown" size={20} />
+          </Button>
+        </div>
+      </section>
+
+      <section id="laws" className="py-20 px-6 bg-secondary/30">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-4xl font-bold text-center mb-16">Три закона Ньютона</h2>
+          <div className="grid gap-8 md:grid-cols-3">
+            {laws.map((law, index) => (
+              <Card key={index} className="hover:shadow-xl transition-shadow animate-fade-in">
+                <CardContent className="p-8">
+                  <div className="mb-6">
+                    <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-4">
+                      <Icon name={law.icon} size={32} className="text-primary" />
+                    </div>
+                    <div className="text-sm font-semibold text-primary mb-2">
+                      {law.subtitle}
+                    </div>
+                    <h3 className="text-2xl font-bold mb-4">{law.title}</h3>
+                  </div>
+                  <p className="text-muted-foreground leading-relaxed mb-6">
+                    {law.description}
+                  </p>
+                  <div className="bg-secondary/50 rounded-lg p-4">
+                    <div className="text-sm text-muted-foreground mb-1">Формула:</div>
+                    <div className="text-2xl font-mono font-semibold text-primary">
+                      {law.formula}
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="examples" className="py-20 px-6">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-4xl font-bold text-center mb-4">Примеры применения</h2>
+          <p className="text-center text-muted-foreground mb-16 text-lg">
+            Законы Ньютона окружают нас повсюду в повседневной жизни
+          </p>
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {examples.map((example, index) => (
+              <Card key={index} className="hover:shadow-lg transition-shadow animate-fade-in">
+                <CardContent className="p-6">
+                  <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
+                    <Icon name={example.icon} size={24} className="text-primary" />
+                  </div>
+                  <div className="text-xs font-semibold text-primary mb-2">
+                    {example.law}
+                  </div>
+                  <h3 className="text-xl font-bold mb-3">{example.title}</h3>
+                  <p className="text-muted-foreground leading-relaxed">
+                    {example.description}
+                  </p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="videos" className="py-20 px-6 bg-secondary/30">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-4xl font-bold text-center mb-4">Видеоматериалы</h2>
+          <p className="text-center text-muted-foreground mb-16 text-lg">
+            Наглядные объяснения и эксперименты
+          </p>
+          <div className="grid gap-8 md:grid-cols-2">
+            {videos.map((video, index) => (
+              <Card key={index} className="overflow-hidden animate-fade-in">
+                <CardContent className="p-0">
+                  <div className="aspect-video">
+                    <iframe
+                      width="100%"
+                      height="100%"
+                      src={video.url}
+                      title={video.title}
+                      frameBorder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                      className="w-full h-full"
+                    />
+                  </div>
+                  <div className="p-6">
+                    <h3 className="text-xl font-bold mb-2">{video.title}</h3>
+                    <p className="text-muted-foreground">{video.description}</p>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <footer className="py-12 px-6 border-t">
+        <div className="max-w-6xl mx-auto text-center">
+          <p className="text-muted-foreground">
+            Образовательный сайт о законах Ньютона
+          </p>
+          <p className="text-sm text-muted-foreground mt-2">
+            © 2025 Все материалы в образовательных целях
+          </p>
+        </div>
+      </footer>
     </div>
   );
 };
