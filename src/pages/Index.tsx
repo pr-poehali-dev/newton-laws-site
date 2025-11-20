@@ -115,20 +115,20 @@ const Index = () => {
                 Законы
               </button>
               <button
-                onClick={() => scrollToSection('examples')}
-                className={`text-sm font-medium transition-colors hover:text-primary ${
-                  activeSection === 'examples' ? 'text-primary' : 'text-muted-foreground'
-                }`}
-              >
-                Примеры
-              </button>
-              <button
                 onClick={() => scrollToSection('videos')}
                 className={`text-sm font-medium transition-colors hover:text-primary ${
                   activeSection === 'videos' ? 'text-primary' : 'text-muted-foreground'
                 }`}
               >
                 Видео
+              </button>
+              <button
+                onClick={() => scrollToSection('examples')}
+                className={`text-sm font-medium transition-colors hover:text-primary ${
+                  activeSection === 'examples' ? 'text-primary' : 'text-muted-foreground'
+                }`}
+              >
+                Примеры
               </button>
             </div>
           </div>
@@ -188,33 +188,6 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="examples" className="py-20 px-6">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl font-bold text-center mb-4">Примеры применения</h2>
-          <p className="text-center text-muted-foreground mb-16 text-lg">
-            Законы Ньютона окружают нас повсюду в повседневной жизни
-          </p>
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {examples.map((example, index) => (
-              <Card key={index} className="hover:shadow-lg transition-shadow animate-fade-in">
-                <CardContent className="p-6">
-                  <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
-                    <Icon name={example.icon} size={24} className="text-primary" />
-                  </div>
-                  <div className="text-xs font-semibold text-primary mb-2">
-                    {example.law}
-                  </div>
-                  <h3 className="text-xl font-bold mb-3">{example.title}</h3>
-                  <p className="text-muted-foreground leading-relaxed">
-                    {example.description}
-                  </p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
       <section id="videos" className="py-20 px-6 bg-secondary/30">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-4xl font-bold text-center mb-4">Видеоматериалы</h2>
@@ -241,6 +214,33 @@ const Index = () => {
                     <h3 className="text-xl font-bold mb-2">{video.title}</h3>
                     <p className="text-muted-foreground">{video.description}</p>
                   </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="examples" className="py-20 px-6">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-4xl font-bold text-center mb-4">Примеры применения</h2>
+          <p className="text-center text-muted-foreground mb-16 text-lg">
+            Законы Ньютона окружают нас повсюду в повседневной жизни
+          </p>
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {examples.map((example, index) => (
+              <Card key={index} className="hover:shadow-lg transition-shadow animate-fade-in">
+                <CardContent className="p-6">
+                  <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
+                    <Icon name={example.icon} size={24} className="text-primary" />
+                  </div>
+                  <div className="text-xs font-semibold text-primary mb-2">
+                    {example.law}
+                  </div>
+                  <h3 className="text-xl font-bold mb-3">{example.title}</h3>
+                  <p className="text-muted-foreground leading-relaxed">
+                    {example.description}
+                  </p>
                 </CardContent>
               </Card>
             ))}
