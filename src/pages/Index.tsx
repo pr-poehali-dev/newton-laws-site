@@ -311,10 +311,7 @@ const Index = () => {
       <footer className="py-12 px-6 border-t">
         <div className="max-w-6xl mx-auto text-center">
           <p className="text-muted-foreground">
-            Образовательный сайт о законах Ньютона
-          </p>
-          <p className="text-sm text-muted-foreground mt-2">
-            © 2025 Все материалы в образовательных целях
+            И.П. 2026 Прокошина Никиты
           </p>
         </div>
       </footer>
