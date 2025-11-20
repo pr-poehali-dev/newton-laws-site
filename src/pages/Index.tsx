@@ -1,10 +1,34 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import Icon from '@/components/ui/icon';
 
 const Index = () => {
   const [activeSection, setActiveSection] = useState('home');
+  const [visibleSections, setVisibleSections] = useState<Set<string>>(new Set());
+  const observerRef = useRef<IntersectionObserver | null>(null);
+
+  useEffect(() => {
+    observerRef.current = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setVisibleSections((prev) => new Set(prev).add(entry.target.id));
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    const sections = document.querySelectorAll('section[id]');
+    sections.forEach((section) => {
+      observerRef.current?.observe(section);
+    });
+
+    return () => {
+      observerRef.current?.disconnect();
+    };
+  }, []);
 
   const scrollToSection = (id: string) => {
     setActiveSection(id);
@@ -136,7 +160,9 @@ const Index = () => {
       </nav>
 
       <section id="home" className="pt-32 pb-20 px-6">
-        <div className="max-w-4xl mx-auto text-center animate-fade-in">
+        <div className={`max-w-4xl mx-auto text-center transition-all duration-700 ${
+          visibleSections.has('home') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+        }`}>
           <h2 className="text-5xl md:text-6xl font-bold mb-6 text-foreground">
             Три закона, изменившие мир
           </h2>
@@ -158,10 +184,20 @@ const Index = () => {
 
       <section id="laws" className="py-20 px-6 bg-secondary/30">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl font-bold text-center mb-16">Три закона Ньютона</h2>
+          <h2 className={`text-4xl font-bold text-center mb-16 transition-all duration-700 ${
+            visibleSections.has('laws') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`}>Три закона Ньютона</h2>
           <div className="grid gap-8 md:grid-cols-3">
             {laws.map((law, index) => (
-              <Card key={index} className="hover:shadow-xl hover:-translate-y-2 transition-all duration-300 animate-fade-in">
+              <Card 
+                key={index} 
+                className={`hover:shadow-xl hover:-translate-y-2 transition-all duration-500 ${
+                  visibleSections.has('laws') 
+                    ? 'opacity-100 translate-y-0' 
+                    : 'opacity-0 translate-y-10'
+                }`}
+                style={{ transitionDelay: `${index * 150}ms` }}
+              >
                 <CardContent className="p-8">
                   <div className="mb-6">
                     <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-4">
@@ -190,13 +226,25 @@ const Index = () => {
 
       <section id="examples" className="py-20 px-6">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl font-bold text-center mb-4">Примеры применения</h2>
-          <p className="text-center text-muted-foreground mb-16 text-lg">
+          <h2 className={`text-4xl font-bold text-center mb-4 transition-all duration-700 ${
+            visibleSections.has('examples') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`}>Примеры применения</h2>
+          <p className={`text-center text-muted-foreground mb-16 text-lg transition-all duration-700 delay-100 ${
+            visibleSections.has('examples') ? 'opacity-100' : 'opacity-0'
+          }`}>
             Законы Ньютона окружают нас повсюду в повседневной жизни
           </p>
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {examples.map((example, index) => (
-              <Card key={index} className="hover:shadow-lg hover:-translate-y-1 transition-all duration-300 animate-fade-in">
+              <Card 
+                key={index} 
+                className={`hover:shadow-lg hover:-translate-y-1 transition-all duration-500 ${
+                  visibleSections.has('examples') 
+                    ? 'opacity-100 translate-y-0' 
+                    : 'opacity-0 translate-y-10'
+                }`}
+                style={{ transitionDelay: `${index * 100}ms` }}
+              >
                 <CardContent className="p-6">
                   <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
                     <Icon name={example.icon} size={24} className="text-primary" />
@@ -217,13 +265,25 @@ const Index = () => {
 
       <section id="videos" className="py-20 px-6 bg-secondary/30">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl font-bold text-center mb-4">Видеоматериалы</h2>
-          <p className="text-center text-muted-foreground mb-16 text-lg">
+          <h2 className={`text-4xl font-bold text-center mb-4 transition-all duration-700 ${
+            visibleSections.has('videos') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`}>Видеоматериалы</h2>
+          <p className={`text-center text-muted-foreground mb-16 text-lg transition-all duration-700 delay-100 ${
+            visibleSections.has('videos') ? 'opacity-100' : 'opacity-0'
+          }`}>
             Наглядные объяснения и эксперименты
           </p>
           <div className="grid gap-8 md:grid-cols-2">
             {videos.map((video, index) => (
-              <Card key={index} className="overflow-hidden hover:shadow-xl hover:-translate-y-2 transition-all duration-300 animate-fade-in">
+              <Card 
+                key={index} 
+                className={`overflow-hidden hover:shadow-xl hover:-translate-y-2 transition-all duration-500 ${
+                  visibleSections.has('videos') 
+                    ? 'opacity-100 translate-y-0' 
+                    : 'opacity-0 translate-y-10'
+                }`}
+                style={{ transitionDelay: `${index * 200}ms` }}
+              >
                 <CardContent className="p-0">
                   <div className="aspect-video">
                     <iframe
