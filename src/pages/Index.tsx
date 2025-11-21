@@ -6,6 +6,7 @@ import Icon from '@/components/ui/icon';
 const Index = () => {
   const [activeSection, setActiveSection] = useState('home');
   const [visibleSections, setVisibleSections] = useState<Set<string>>(new Set());
+  const [scrollProgress, setScrollProgress] = useState(0);
   const observerRef = useRef<IntersectionObserver | null>(null);
 
   useEffect(() => {
@@ -25,8 +26,17 @@ const Index = () => {
       observerRef.current?.observe(section);
     });
 
+    const handleScroll = () => {
+      const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = Math.min(window.scrollY / scrollHeight, 1);
+      setScrollProgress(progress);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
     return () => {
       observerRef.current?.disconnect();
+      window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 
@@ -116,8 +126,44 @@ const Index = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-white">
-      <nav className="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-sm border-b z-50">
+    <div className="min-h-screen bg-white relative">
+      <div 
+        className="fixed inset-0 transition-opacity duration-1000 pointer-events-none"
+        style={{
+          background: `linear-gradient(to bottom, 
+            rgba(10, 10, 30, ${1 - scrollProgress}) 0%, 
+            rgba(20, 30, 60, ${0.8 - scrollProgress * 0.8}) 30%,
+            rgba(30, 60, 100, ${0.5 - scrollProgress * 0.5}) 60%,
+            rgba(135, 206, 235, ${Math.max(0, scrollProgress - 0.3)}) 80%,
+            rgba(34, 139, 34, ${Math.max(0, (scrollProgress - 0.5) * 2)}) 100%
+          )`,
+          opacity: scrollProgress < 0.7 ? 1 : 1 - (scrollProgress - 0.7) / 0.3
+        }}
+      />
+      <div 
+        className="fixed inset-0 pointer-events-none"
+        style={{
+          background: scrollProgress > 0.7 ? 'radial-gradient(ellipse at center, transparent 0%, rgba(255,255,255,0.1) 100%)' : 'none',
+          opacity: scrollProgress > 0.7 ? (scrollProgress - 0.7) / 0.3 : 0
+        }}
+      />
+      {Array.from({ length: 100 }).map((_, i) => (
+        <div
+          key={i}
+          className="fixed rounded-full bg-white pointer-events-none"
+          style={{
+            width: Math.random() * 3 + 1 + 'px',
+            height: Math.random() * 3 + 1 + 'px',
+            top: Math.random() * 100 + '%',
+            left: Math.random() * 100 + '%',
+            opacity: Math.max(0, 1 - scrollProgress * 2),
+            animation: `twinkle ${Math.random() * 3 + 2}s infinite`
+          }}
+        />
+      ))}
+      <nav className="fixed top-0 left-0 right-0 backdrop-blur-sm border-b z-50" style={{
+        background: scrollProgress < 0.5 ? 'rgba(255, 255, 255, 0.1)' : 'rgba(255, 255, 255, 0.95)'
+      }}>
         <div className="max-w-7xl mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <h1 className="text-2xl font-bold text-primary">Законы Ньютона</h1>
@@ -159,14 +205,18 @@ const Index = () => {
         </div>
       </nav>
 
-      <section id="home" className="pt-32 pb-20 px-6">
+      <section id="home" className="pt-32 pb-20 px-6 relative z-10">
         <div className={`max-w-4xl mx-auto text-center transition-all duration-700 ${
           visibleSections.has('home') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
         }`}>
-          <h2 className="text-5xl md:text-6xl font-bold mb-6 text-foreground">
+          <h2 className="text-5xl md:text-6xl font-bold mb-6" style={{
+            color: scrollProgress < 0.5 ? 'white' : 'hsl(220, 20%, 10%)'
+          }}>
             Три закона, изменившие мир
           </h2>
-          <p className="text-xl text-muted-foreground leading-relaxed mb-8 max-w-2xl mx-auto">
+          <p className="text-xl leading-relaxed mb-8 max-w-2xl mx-auto" style={{
+            color: scrollProgress < 0.5 ? 'rgba(255, 255, 255, 0.9)' : 'hsl(215.4, 16.3%, 46.9%)'
+          }}>
             Исаак Ньютон сформулировал три фундаментальных закона механики,
             которые легли в основу классической физики и описывают движение
             всех объектов — от яблок до планет.
@@ -182,7 +232,7 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="laws" className="py-20 px-6 bg-secondary/30">
+      <section id="laws" className="py-20 px-6 bg-secondary/30 relative z-10">
         <div className="max-w-6xl mx-auto">
           <h2 className={`text-4xl font-bold text-center mb-16 transition-all duration-700 ${
             visibleSections.has('laws') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
@@ -224,7 +274,7 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="examples" className="py-20 px-6">
+      <section id="examples" className="py-20 px-6 relative z-10">
         <div className="max-w-6xl mx-auto">
           <h2 className={`text-4xl font-bold text-center mb-4 transition-all duration-700 ${
             visibleSections.has('examples') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
@@ -263,7 +313,7 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="videos" className="py-20 px-6 bg-secondary/30">
+      <section id="videos" className="py-20 px-6 bg-secondary/30 relative z-10">
         <div className="max-w-6xl mx-auto">
           <h2 className={`text-4xl font-bold text-center mb-4 transition-all duration-700 ${
             visibleSections.has('videos') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
@@ -308,7 +358,7 @@ const Index = () => {
         </div>
       </section>
 
-      <footer className="py-12 px-6 border-t">
+      <footer className="py-12 px-6 border-t relative z-10">
         <div className="max-w-6xl mx-auto text-center">
           <p className="text-muted-foreground">
             И.П. 2026 Прокошина Никиты
