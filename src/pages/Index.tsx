@@ -201,10 +201,10 @@ const Index = () => {
                   width: '120px',
                   height: '2px',
                   background: 'linear-gradient(to right, rgba(255,255,255,0.9), rgba(255,255,255,0.6) 30%, transparent)',
-                  top: '50%',
-                  right: '100%',
-                  transform: 'translateY(-50%) rotate(-45deg)',
-                  transformOrigin: 'right center',
+                  top: '0',
+                  left: '0',
+                  transform: 'rotate(-135deg)',
+                  transformOrigin: 'left top',
                 }}
               />
             </div>
