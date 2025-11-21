@@ -124,17 +124,14 @@
 
 @keyframes shootingStar {
   0% {
-    transform: translate(-100px, -100px);
-    opacity: 0;
-  }
-  5% {
+    transform: translate(-150px, -150px);
     opacity: 1;
   }
-  85% {
+  90% {
     opacity: 1;
   }
   100% {
-    transform: translate(400px, 400px);
+    transform: translate(500px, 500px);
     opacity: 0;
   }
 }
