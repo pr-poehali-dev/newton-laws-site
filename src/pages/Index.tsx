@@ -185,10 +185,10 @@ const Index = () => {
         />
       ))}
       {Array.from({ length: 8 }).map((_, i) => {
-        const startX = Math.random() * 100;
-        const startY = Math.random() * 40;
-        const duration = 1.5 + Math.random() * 2;
-        const delay = Math.random() * 10;
+        const startX = 20 + Math.random() * 60;
+        const startY = 10 + Math.random() * 30;
+        const duration = 2 + Math.random() * 1.5;
+        const delay = i * 1.5 + Math.random() * 2;
         return (
           <div
             key={`meteor-${i}`}
@@ -197,7 +197,7 @@ const Index = () => {
               left: `${startX}%`,
               top: `${startY}%`,
               opacity: Math.max(0, Math.min(1, (0.4 - scrollProgress) * 2.5)),
-              animation: `shootingStar ${duration}s linear ${delay}s infinite`
+              animation: `shootingStar ${duration}s ease-in ${delay}s infinite`
             }}
           >
             <div 
