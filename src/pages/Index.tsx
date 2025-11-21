@@ -368,6 +368,16 @@ const Index = () => {
         <div className={`max-w-4xl mx-auto text-center transition-all duration-700 ${
           visibleSections.has('home') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
         }`}>
+          <div className="mb-8 relative">
+            <img 
+              src="https://cdn.poehali.dev/projects/ed403ce0-4a68-4081-894e-268aa095093d/files/fadf5e24-ba6b-49c2-91de-5682f2af3a2b.jpg" 
+              alt="Спутник-1 в космосе" 
+              className="w-64 h-64 mx-auto object-contain rounded-2xl animate-float"
+              style={{
+                filter: 'drop-shadow(0 0 40px rgba(100, 150, 255, 0.5))'
+              }}
+            />
+          </div>
           <h2 className="text-5xl md:text-6xl font-bold mb-6" style={{
             color: scrollProgress < 0.5 ? 'white' : 'hsl(220, 20%, 10%)'
           }}>
