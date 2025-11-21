@@ -170,20 +170,28 @@ const Index = () => {
           transition: 'opacity 500ms'
         }}
       />
-      {Array.from({ length: 100 }).map((_, i) => (
-        <div
-          key={i}
-          className="fixed rounded-full bg-white pointer-events-none transition-opacity duration-500"
-          style={{
-            width: Math.random() * 3 + 1 + 'px',
-            height: Math.random() * 3 + 1 + 'px',
-            top: Math.random() * 100 + '%',
-            left: Math.random() * 100 + '%',
-            opacity: Math.max(0, Math.min(1, (0.5 - scrollProgress) * 2)),
-            animation: `twinkle ${Math.random() * 3 + 2}s infinite`
-          }}
-        />
-      ))}
+      {Array.from({ length: 100 }).map((_, i) => {
+        const size = Math.random() * 3 + 1;
+        const topPos = Math.random() * 100;
+        const leftPos = Math.random() * 100;
+        const animDuration = Math.random() * 3 + 2;
+        return (
+          <div
+            key={i}
+            className="fixed rounded-full bg-white pointer-events-none"
+            style={{
+              width: size + 'px',
+              height: size + 'px',
+              top: topPos + '%',
+              left: leftPos + '%',
+              opacity: Math.max(0, Math.min(1, (0.5 - scrollProgress) * 2)),
+              animation: `twinkle ${animDuration}s infinite`,
+              transition: 'opacity 800ms ease-out',
+              willChange: 'opacity'
+            }}
+          />
+        );
+      })}
       {Array.from({ length: 8 }).map((_, i) => {
         const startX = 20 + Math.random() * 60;
         const startY = 10 + Math.random() * 30;
