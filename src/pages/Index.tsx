@@ -200,11 +200,11 @@ const Index = () => {
                 style={{
                   width: '120px',
                   height: '2px',
-                  background: 'linear-gradient(to left, rgba(255,255,255,0.9), rgba(255,255,255,0.6) 30%, transparent)',
+                  background: 'linear-gradient(to right, rgba(255,255,255,0.9), rgba(255,255,255,0.6) 30%, transparent)',
                   top: '50%',
-                  left: '100%',
+                  right: '100%',
                   transform: 'translateY(-50%) rotate(-45deg)',
-                  transformOrigin: 'left center',
+                  transformOrigin: 'right center',
                 }}
               />
             </div>
