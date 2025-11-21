@@ -133,8 +133,9 @@ const Index = () => {
           background: `linear-gradient(to bottom, 
             rgba(10, 10, 30, ${1 - scrollProgress}) 0%, 
             rgba(20, 30, 60, ${0.8 - scrollProgress * 0.8}) 30%,
-            rgba(30, 60, 100, ${0.5 - scrollProgress * 0.5}) 60%,
-            rgba(135, 206, 235, ${Math.max(0, scrollProgress - 0.3)}) 80%,
+            rgba(25, 90, 180, ${0.7 - scrollProgress * 0.7}) 50%,
+            rgba(0, 150, 255, ${Math.max(0, scrollProgress - 0.3)}) 70%,
+            rgba(135, 206, 250, ${Math.max(0, scrollProgress - 0.4)}) 85%,
             rgba(34, 139, 34, ${Math.max(0, (scrollProgress - 0.5) * 2)}) 100%
           )`,
           opacity: scrollProgress < 0.7 ? 1 : 1 - (scrollProgress - 0.7) / 0.3
