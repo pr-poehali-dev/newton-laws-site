@@ -186,7 +186,7 @@ const Index = () => {
               height: size + 'px',
               top: topPos + '%',
               left: leftPos + '%',
-              opacity: Math.max(0, Math.min(1, (0.5 - scrollProgress) * 2)),
+              opacity: Math.max(0, Math.min(1, (0.3 - scrollProgress) * 3)),
               animation: `twinkle ${animDuration}s infinite`,
               transition: 'opacity 800ms ease-out',
               willChange: 'opacity'
@@ -206,7 +206,7 @@ const Index = () => {
             style={{
               left: `${startX}%`,
               top: `${startY}%`,
-              opacity: Math.max(0, Math.min(1, (0.4 - scrollProgress) * 2.5)),
+              opacity: Math.max(0, Math.min(1, (0.25 - scrollProgress) * 4)),
               animation: `shootingStar ${duration}s ease-in ${delay}s infinite`
             }}
           >
@@ -230,6 +230,52 @@ const Index = () => {
                   left: '0',
                   transform: 'rotate(-135deg)',
                   transformOrigin: 'left top',
+                }}
+              />
+            </div>
+          </div>
+        );
+      })}
+      {Array.from({ length: 5 }).map((_, i) => {
+        const startX = 10 + Math.random() * 80;
+        const startY = 5 + Math.random() * 20;
+        const duration = 15 + Math.random() * 10;
+        const delay = i * 5;
+        return (
+          <div
+            key={`satellite-${i}`}
+            className="fixed pointer-events-none transition-opacity duration-500"
+            style={{
+              left: `${startX}%`,
+              top: `${startY}%`,
+              opacity: Math.max(0, Math.min(1, (0.25 - scrollProgress) * 4)),
+              animation: `satelliteMove ${duration}s linear ${delay}s infinite`
+            }}
+          >
+            <div 
+              className="relative flex items-center gap-1"
+            >
+              <div 
+                style={{
+                  width: '8px',
+                  height: '6px',
+                  background: 'linear-gradient(135deg, rgba(200,200,255,0.9), rgba(150,150,200,0.8))',
+                  borderRadius: '2px',
+                  boxShadow: '0 0 8px 2px rgba(150,150,255,0.5)'
+                }}
+              />
+              <div 
+                style={{
+                  width: '12px',
+                  height: '1px',
+                  background: 'rgba(100,150,255,0.6)'
+                }}
+              />
+              <div 
+                style={{
+                  width: '12px',
+                  height: '1px',
+                  background: 'rgba(100,150,255,0.6)'
                 }}
               />
             </div>
