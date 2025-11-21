@@ -158,13 +158,13 @@ const Index = () => {
       {Array.from({ length: 100 }).map((_, i) => (
         <div
           key={i}
-          className="fixed rounded-full bg-white pointer-events-none"
+          className="fixed rounded-full bg-white pointer-events-none transition-opacity duration-500"
           style={{
             width: Math.random() * 3 + 1 + 'px',
             height: Math.random() * 3 + 1 + 'px',
             top: Math.random() * 100 + '%',
             left: Math.random() * 100 + '%',
-            opacity: Math.max(0, 1 - scrollProgress * 2),
+            opacity: Math.max(0, Math.min(1, (0.5 - scrollProgress) * 2)),
             animation: `twinkle ${Math.random() * 3 + 2}s infinite`
           }}
         />
@@ -177,19 +177,19 @@ const Index = () => {
         return (
           <div
             key={`meteor-${i}`}
-            className="fixed pointer-events-none"
+            className="fixed pointer-events-none transition-opacity duration-500"
             style={{
               left: `${startX}%`,
               top: `${startY}%`,
-              opacity: Math.max(0, 1 - scrollProgress * 2.5),
+              opacity: Math.max(0, Math.min(1, (0.4 - scrollProgress) * 2.5)),
               animation: `shootingStar ${duration}s linear ${delay}s infinite`
             }}
           >
             <div 
               className="relative"
               style={{
-                width: '3px',
-                height: '3px',
+                width: '4px',
+                height: '4px',
                 background: 'white',
                 borderRadius: '50%',
                 boxShadow: '0 0 10px 2px rgba(255,255,255,0.8), 0 0 20px 4px rgba(255,255,255,0.4)'
@@ -198,12 +198,13 @@ const Index = () => {
               <div 
                 className="absolute"
                 style={{
-                  width: '100px',
+                  width: '120px',
                   height: '2px',
-                  background: 'linear-gradient(to right, rgba(255,255,255,0.8), transparent)',
+                  background: 'linear-gradient(to left, rgba(255,255,255,0.9), rgba(255,255,255,0.6) 30%, transparent)',
                   top: '50%',
-                  right: '100%',
-                  transform: 'translateY(-50%)',
+                  left: '100%',
+                  transform: 'translateY(-50%) rotate(-45deg)',
+                  transformOrigin: 'left center',
                 }}
               />
             </div>
