@@ -136,6 +136,7 @@ const Index = () => {
             rgba(25, 90, 180, ${0.7 - scrollProgress * 0.7}) 50%,
             rgba(0, 150, 255, ${Math.max(0, scrollProgress - 0.3)}) 70%,
             rgba(135, 206, 250, ${Math.max(0, scrollProgress - 0.4)}) 85%,
+            rgba(101, 67, 33, ${Math.max(0, (scrollProgress - 0.55) * 3)}) 92%,
             rgba(34, 139, 34, ${Math.max(0, (scrollProgress - 0.5) * 2)}) 100%
           )`,
           opacity: scrollProgress < 0.7 ? 1 : 1 - (scrollProgress - 0.7) / 0.3
@@ -144,8 +145,13 @@ const Index = () => {
       <div 
         className="fixed inset-0 pointer-events-none"
         style={{
-          background: scrollProgress > 0.7 ? 'radial-gradient(ellipse at center, transparent 0%, rgba(255,255,255,0.1) 100%)' : 'none',
-          opacity: scrollProgress > 0.7 ? (scrollProgress - 0.7) / 0.3 : 0
+          background: scrollProgress > 0.5 ? `
+            radial-gradient(circle at 20% 80%, rgba(255,255,255,0.8) 0%, transparent 15%),
+            radial-gradient(circle at 60% 85%, rgba(255,255,255,0.7) 0%, transparent 20%),
+            radial-gradient(circle at 85% 75%, rgba(255,255,255,0.6) 0%, transparent 18%),
+            radial-gradient(circle at 40% 90%, rgba(255,255,255,0.9) 0%, transparent 12%)
+          ` : 'none',
+          opacity: scrollProgress > 0.5 ? Math.min(1, (scrollProgress - 0.5) * 2) : 0
         }}
       />
       {Array.from({ length: 100 }).map((_, i) => (
