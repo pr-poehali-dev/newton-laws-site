@@ -169,6 +169,47 @@ const Index = () => {
           }}
         />
       ))}
+      {Array.from({ length: 8 }).map((_, i) => {
+        const startX = Math.random() * 100;
+        const startY = Math.random() * 40;
+        const duration = 1.5 + Math.random() * 2;
+        const delay = Math.random() * 10;
+        return (
+          <div
+            key={`meteor-${i}`}
+            className="fixed pointer-events-none"
+            style={{
+              left: `${startX}%`,
+              top: `${startY}%`,
+              opacity: Math.max(0, 1 - scrollProgress * 2.5),
+              animation: `shootingStar ${duration}s linear ${delay}s infinite`
+            }}
+          >
+            <div 
+              className="relative"
+              style={{
+                width: '3px',
+                height: '3px',
+                background: 'white',
+                borderRadius: '50%',
+                boxShadow: '0 0 10px 2px rgba(255,255,255,0.8), 0 0 20px 4px rgba(255,255,255,0.4)'
+              }}
+            >
+              <div 
+                className="absolute"
+                style={{
+                  width: '100px',
+                  height: '2px',
+                  background: 'linear-gradient(to right, rgba(255,255,255,0.8), transparent)',
+                  top: '50%',
+                  right: '100%',
+                  transform: 'translateY(-50%)',
+                }}
+              />
+            </div>
+          </div>
+        );
+      })}
       <nav className="fixed top-0 left-0 right-0 backdrop-blur-sm border-b z-50" style={{
         background: scrollProgress < 0.5 ? 'rgba(255, 255, 255, 0.1)' : 'rgba(255, 255, 255, 0.95)'
       }}>
