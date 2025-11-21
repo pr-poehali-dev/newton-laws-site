@@ -136,14 +136,20 @@
   }
 }
 
-@keyframes satelliteMove {
+@keyframes sputnikOrbit {
   0% {
-    transform: translate(0, 0);
+    transform: translate(0, 0) rotate(0deg);
+  }
+  25% {
+    transform: translate(150px, -80px) rotate(90deg);
   }
   50% {
-    transform: translate(200px, -50px);
+    transform: translate(200px, 0) rotate(180deg);
+  }
+  75% {
+    transform: translate(150px, 80px) rotate(270deg);
   }
   100% {
-    transform: translate(0, 0);
+    transform: translate(0, 0) rotate(360deg);
   }
 }

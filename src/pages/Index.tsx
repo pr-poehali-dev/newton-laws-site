@@ -236,52 +236,90 @@ const Index = () => {
           </div>
         );
       })}
-      {Array.from({ length: 5 }).map((_, i) => {
-        const startX = 10 + Math.random() * 80;
-        const startY = 5 + Math.random() * 20;
-        const duration = 15 + Math.random() * 10;
-        const delay = i * 5;
-        return (
-          <div
-            key={`satellite-${i}`}
-            className="fixed pointer-events-none transition-opacity duration-500"
+      <div
+        className="fixed pointer-events-none transition-opacity duration-500"
+        style={{
+          left: '70%',
+          top: '15%',
+          opacity: Math.max(0, Math.min(1, (0.25 - scrollProgress) * 4)),
+          animation: 'sputnikOrbit 25s linear infinite'
+        }}
+      >
+        <div className="relative" style={{ transform: 'rotate(-20deg)' }}>
+          <div 
             style={{
-              left: `${startX}%`,
-              top: `${startY}%`,
-              opacity: Math.max(0, Math.min(1, (0.25 - scrollProgress) * 4)),
-              animation: `satelliteMove ${duration}s linear ${delay}s infinite`
+              width: '14px',
+              height: '14px',
+              background: 'radial-gradient(circle at 30% 30%, rgba(220,220,255,1), rgba(150,150,200,0.9))',
+              borderRadius: '50%',
+              boxShadow: '0 0 10px 2px rgba(150,150,255,0.6), inset -2px -2px 4px rgba(0,0,0,0.3)',
+              position: 'relative'
             }}
           >
             <div 
-              className="relative flex items-center gap-1"
-            >
-              <div 
-                style={{
-                  width: '8px',
-                  height: '6px',
-                  background: 'linear-gradient(135deg, rgba(200,200,255,0.9), rgba(150,150,200,0.8))',
-                  borderRadius: '2px',
-                  boxShadow: '0 0 8px 2px rgba(150,150,255,0.5)'
-                }}
-              />
-              <div 
-                style={{
-                  width: '12px',
-                  height: '1px',
-                  background: 'rgba(100,150,255,0.6)'
-                }}
-              />
-              <div 
-                style={{
-                  width: '12px',
-                  height: '1px',
-                  background: 'rgba(100,150,255,0.6)'
-                }}
-              />
-            </div>
+              style={{
+                position: 'absolute',
+                width: '3px',
+                height: '3px',
+                background: 'rgba(255,100,100,0.8)',
+                borderRadius: '50%',
+                top: '50%',
+                left: '50%',
+                transform: 'translate(-50%, -50%)',
+                boxShadow: '0 0 6px 2px rgba(255,100,100,0.5)'
+              }}
+            />
           </div>
-        );
-      })}
+          <div 
+            style={{
+              position: 'absolute',
+              top: '-8px',
+              left: '50%',
+              transform: 'translateX(-50%)',
+              width: '1px',
+              height: '35px',
+              background: 'linear-gradient(to bottom, rgba(180,180,220,0.9), rgba(180,180,220,0.4))',
+              boxShadow: '0 0 4px 1px rgba(150,150,255,0.3)'
+            }}
+          />
+          <div 
+            style={{
+              position: 'absolute',
+              bottom: '-8px',
+              left: '50%',
+              transform: 'translateX(-50%)',
+              width: '1px',
+              height: '35px',
+              background: 'linear-gradient(to top, rgba(180,180,220,0.9), rgba(180,180,220,0.4))',
+              boxShadow: '0 0 4px 1px rgba(150,150,255,0.3)'
+            }}
+          />
+          <div 
+            style={{
+              position: 'absolute',
+              left: '-8px',
+              top: '50%',
+              transform: 'translateY(-50%)',
+              width: '35px',
+              height: '1px',
+              background: 'linear-gradient(to right, rgba(180,180,220,0.9), rgba(180,180,220,0.4))',
+              boxShadow: '0 0 4px 1px rgba(150,150,255,0.3)'
+            }}
+          />
+          <div 
+            style={{
+              position: 'absolute',
+              right: '-8px',
+              top: '50%',
+              transform: 'translateY(-50%)',
+              width: '35px',
+              height: '1px',
+              background: 'linear-gradient(to left, rgba(180,180,220,0.9), rgba(180,180,220,0.4))',
+              boxShadow: '0 0 4px 1px rgba(150,150,255,0.3)'
+            }}
+          />
+        </div>
+      </div>
       <nav className="fixed top-0 left-0 right-0 backdrop-blur-sm border-b z-50" style={{
         background: scrollProgress < 0.5 ? 'rgba(255, 255, 255, 0.1)' : 'rgba(255, 255, 255, 0.95)'
       }}>
