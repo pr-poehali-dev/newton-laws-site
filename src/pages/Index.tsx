@@ -146,13 +146,27 @@ const Index = () => {
       <div 
         className="fixed inset-0 pointer-events-none"
         style={{
-          background: scrollProgress > 0.5 ? `
-            radial-gradient(circle at 20% 80%, rgba(255,255,255,0.8) 0%, transparent 15%),
-            radial-gradient(circle at 60% 85%, rgba(255,255,255,0.7) 0%, transparent 20%),
-            radial-gradient(circle at 85% 75%, rgba(255,255,255,0.6) 0%, transparent 18%),
-            radial-gradient(circle at 40% 90%, rgba(255,255,255,0.9) 0%, transparent 12%)
+          background: scrollProgress > 0.3 ? `
+            radial-gradient(circle at 80% 25%, rgba(255, 220, 100, ${Math.min(0.9, Math.max(0, scrollProgress - 0.3) * 3)}) 0%, rgba(255, 240, 150, ${Math.min(0.6, Math.max(0, scrollProgress - 0.3) * 2)}) 3%, transparent 8%),
+            radial-gradient(circle at 20% 80%, rgba(255,255,255,${Math.min(0.8, Math.max(0, scrollProgress - 0.5) * 2)}) 0%, transparent 15%),
+            radial-gradient(circle at 60% 85%, rgba(255,255,255,${Math.min(0.7, Math.max(0, scrollProgress - 0.5) * 2)}) 0%, transparent 20%),
+            radial-gradient(circle at 85% 75%, rgba(255,255,255,${Math.min(0.6, Math.max(0, scrollProgress - 0.5) * 2)}) 0%, transparent 18%),
+            radial-gradient(circle at 40% 90%, rgba(255,255,255,${Math.min(0.9, Math.max(0, scrollProgress - 0.5) * 2)}) 0%, transparent 12%)
           ` : 'none',
-          opacity: scrollProgress > 0.5 ? Math.min(1, (scrollProgress - 0.5) * 2) : 0
+          opacity: 1
+        }}
+      />
+      <div 
+        className="fixed pointer-events-none"
+        style={{
+          width: '150px',
+          height: '150px',
+          top: '20%',
+          right: '15%',
+          background: 'radial-gradient(circle, rgba(255, 255, 100, 0.4) 0%, transparent 70%)',
+          opacity: scrollProgress > 0.3 && scrollProgress < 0.7 ? Math.min(1, (scrollProgress - 0.3) * 3) : 0,
+          filter: 'blur(30px)',
+          transition: 'opacity 500ms'
         }}
       />
       {Array.from({ length: 100 }).map((_, i) => (
@@ -188,11 +202,11 @@ const Index = () => {
             <div 
               className="relative"
               style={{
-                width: '4px',
-                height: '4px',
+                width: '5px',
+                height: '5px',
                 background: 'white',
                 borderRadius: '50%',
-                boxShadow: '0 0 10px 2px rgba(255,255,255,0.8), 0 0 20px 4px rgba(255,255,255,0.4)'
+                boxShadow: '0 0 15px 3px rgba(255,255,255,1), 0 0 30px 6px rgba(200,200,255,0.6), 0 0 50px 10px rgba(150,150,255,0.3)'
               }}
             >
               <div 
