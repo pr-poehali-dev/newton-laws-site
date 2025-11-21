@@ -131,15 +131,16 @@ const Index = () => {
         className="fixed inset-0 transition-opacity duration-1000 pointer-events-none"
         style={{
           background: `linear-gradient(to bottom, 
-            rgba(10, 10, 30, ${1 - scrollProgress}) 0%, 
-            rgba(20, 30, 60, ${0.8 - scrollProgress * 0.8}) 30%,
-            rgba(25, 90, 180, ${0.7 - scrollProgress * 0.7}) 50%,
-            rgba(0, 150, 255, ${Math.max(0, scrollProgress - 0.3)}) 70%,
-            rgba(135, 206, 250, ${Math.max(0, scrollProgress - 0.4)}) 85%,
-            rgba(101, 67, 33, ${Math.max(0, (scrollProgress - 0.55) * 3)}) 92%,
-            rgba(34, 139, 34, ${Math.max(0, (scrollProgress - 0.5) * 2)}) 100%
+            rgba(10, 10, 30, ${Math.max(0, 1 - scrollProgress * 1.5)}) 0%, 
+            rgba(15, 20, 45, ${Math.max(0, 0.9 - scrollProgress * 1.3)}) 20%,
+            rgba(20, 30, 60, ${Math.max(0, 0.8 - scrollProgress * 1.2)}) 35%,
+            rgba(25, 90, 180, ${Math.max(0, 0.6 - scrollProgress * 0.9)}) 50%,
+            rgba(0, 150, 255, ${Math.min(1, Math.max(0, scrollProgress - 0.2) * 2)}) 65%,
+            rgba(135, 206, 250, ${Math.min(1, Math.max(0, scrollProgress - 0.35) * 2)}) 80%,
+            rgba(101, 67, 33, ${Math.min(0.7, Math.max(0, scrollProgress - 0.5) * 2.5)}) 90%,
+            rgba(34, 139, 34, ${Math.min(1, Math.max(0, scrollProgress - 0.55) * 2)}) 100%
           )`,
-          opacity: scrollProgress < 0.7 ? 1 : 1 - (scrollProgress - 0.7) / 0.3
+          opacity: scrollProgress < 0.8 ? 1 : 1 - (scrollProgress - 0.8) / 0.2
         }}
       />
       <div 
