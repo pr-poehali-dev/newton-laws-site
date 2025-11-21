@@ -137,10 +137,11 @@ const Index = () => {
             rgba(25, 90, 180, ${Math.max(0, 0.6 - scrollProgress * 0.9)}) 50%,
             rgba(0, 150, 255, ${Math.min(1, Math.max(0, scrollProgress - 0.2) * 2)}) 65%,
             rgba(135, 206, 250, ${Math.min(1, Math.max(0, scrollProgress - 0.35) * 2)}) 80%,
-            rgba(101, 67, 33, ${Math.min(0.7, Math.max(0, scrollProgress - 0.5) * 2.5)}) 90%,
-            rgba(34, 139, 34, ${Math.min(1, Math.max(0, scrollProgress - 0.55) * 2)}) 100%
+            rgba(140, 120, 90, ${Math.min(0.3, Math.max(0, scrollProgress - 0.5) * 1.5)}) 88%,
+            rgba(110, 150, 90, ${Math.min(0.4, Math.max(0, scrollProgress - 0.55) * 1.5)}) 95%,
+            rgba(90, 140, 80, ${Math.min(0.5, Math.max(0, scrollProgress - 0.6) * 1.5)}) 100%
           )`,
-          opacity: scrollProgress < 0.8 ? 1 : 1 - (scrollProgress - 0.8) / 0.2
+          opacity: 1
         }}
       />
       <div 
