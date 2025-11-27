@@ -232,6 +232,49 @@ const SpaceBackground = ({ scrollProgress }: SpaceBackgroundProps) => {
           />
         </div>
       </div>
+      <div
+        className="fixed pointer-events-none transition-opacity duration-1000"
+        style={{
+          bottom: '0',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          opacity: Math.min(1, Math.max(0, (scrollProgress - 0.55) * 3)),
+          width: '600px',
+          height: '400px'
+        }}
+      >
+        <svg viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg" style={{ width: '100%', height: '100%' }}>
+          <defs>
+            <radialGradient id="treeGradient" cx="50%" cy="30%">
+              <stop offset="0%" stopColor="rgba(100,180,100,0.9)" />
+              <stop offset="100%" stopColor="rgba(60,120,60,0.8)" />
+            </radialGradient>
+          </defs>
+          <rect x="235" y="120" width="30" height="120" fill="rgba(100,70,50,0.9)" rx="3" />
+          <ellipse cx="250" cy="100" rx="90" ry="100" fill="url(#treeGradient)" />
+          <ellipse cx="220" cy="90" rx="50" ry="60" fill="rgba(80,150,80,0.85)" />
+          <ellipse cx="280" cy="95" rx="55" ry="65" fill="rgba(90,160,90,0.85)" />
+          <ellipse cx="250" cy="55" rx="45" ry="55" fill="rgba(110,180,110,0.9)" />
+          <circle cx="230" cy="130" r="12" fill="rgba(200,50,50,0.8)" />
+          <circle cx="270" cy="145" r="11" fill="rgba(200,50,50,0.75)" />
+          <circle cx="245" cy="115" r="10" fill="rgba(200,50,50,0.7)" />
+          <ellipse cx="340" cy="300" rx="80" ry="30" fill="rgba(80,120,80,0.6)" />
+          <path d="M 300 280 Q 310 260 330 265 L 345 290 Q 340 300 320 295 Z" fill="rgba(100,80,150,0.8)" stroke="rgba(80,60,120,0.9)" strokeWidth="2" />
+          <ellipse cx="325" cy="265" rx="22" ry="18" fill="rgba(220,180,140,0.9)" />
+          <circle cx="320" cy="262" r="2" fill="rgba(50,30,20,0.9)" />
+          <circle cx="330" cy="262" r="2" fill="rgba(50,30,20,0.9)" />
+          <path d="M 322 270 Q 325 272 328 270" stroke="rgba(50,30,20,0.7)" strokeWidth="1.5" fill="none" />
+          <path d="M 315 255 Q 318 250 322 252" stroke="rgba(80,50,30,0.8)" strokeWidth="2" fill="none" />
+          <path d="M 328 252 Q 332 250 335 255" stroke="rgba(80,50,30,0.8)" strokeWidth="2" fill="none" />
+          <path d="M 305 290 Q 300 285 298 280 L 290 282 Q 292 290 300 295 Z" fill="rgba(220,180,140,0.85)" />
+          <path d="M 345 290 Q 350 285 352 280 L 360 282 Q 358 290 350 295 Z" fill="rgba(220,180,140,0.85)" />
+          <path d="M 280 320 Q 275 310 273 300 L 268 302 Q 270 315 278 325 Z" fill="rgba(100,80,150,0.75)" />
+          <path d="M 360 325 Q 365 315 367 305 L 372 307 Q 370 320 362 330 Z" fill="rgba(100,80,150,0.75)" />
+          <ellipse cx="310" cy="283" rx="8" ry="12" fill="rgba(200,160,120,0.8)" />
+          <ellipse cx="340" cy="283" rx="8" ry="12" fill="rgba(200,160,120,0.8)" />
+          <text x="250" y="360" fontSize="14" fill="rgba(80,80,100,0.7)" fontStyle="italic" textAnchor="middle">Исаак Ньютон, 1666</text>
+        </svg>
+      </div>
     </>
   );
 };
