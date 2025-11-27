@@ -28,7 +28,7 @@ const SpaceBackground = ({ scrollProgress }: SpaceBackgroundProps) => {
         className="fixed inset-0 pointer-events-none"
         style={{
           background: scrollProgress > 0.3 ? `
-            radial-gradient(circle at 80% 25%, rgba(255, 220, 100, ${Math.min(0.9, Math.max(0, scrollProgress - 0.3) * 3)}) 0%, rgba(255, 240, 150, ${Math.min(0.6, Math.max(0, scrollProgress - 0.3) * 2)}) 3%, transparent 8%),
+            radial-gradient(circle at 80% 25%, rgba(255, 240, 80, ${Math.min(1, Math.max(0, scrollProgress - 0.3) * 4)}) 0%, rgba(255, 220, 100, ${Math.min(0.9, Math.max(0, scrollProgress - 0.3) * 3)}) 2%, rgba(255, 200, 80, ${Math.min(0.7, Math.max(0, scrollProgress - 0.3) * 2.5)}) 4%, transparent 10%),
             radial-gradient(circle at 20% 80%, rgba(255,255,255,${Math.min(0.8, Math.max(0, scrollProgress - 0.5) * 2)}) 0%, transparent 15%),
             radial-gradient(circle at 60% 85%, rgba(255,255,255,${Math.min(0.7, Math.max(0, scrollProgress - 0.5) * 2)}) 0%, transparent 20%),
             radial-gradient(circle at 85% 75%, rgba(255,255,255,${Math.min(0.6, Math.max(0, scrollProgress - 0.5) * 2)}) 0%, transparent 18%),
@@ -40,13 +40,13 @@ const SpaceBackground = ({ scrollProgress }: SpaceBackgroundProps) => {
       <div 
         className="fixed pointer-events-none"
         style={{
-          width: '150px',
-          height: '150px',
+          width: '200px',
+          height: '200px',
           top: '20%',
           right: '15%',
-          background: 'radial-gradient(circle, rgba(255, 255, 100, 0.4) 0%, transparent 70%)',
+          background: 'radial-gradient(circle, rgba(255, 255, 150, 0.8) 0%, rgba(255, 240, 100, 0.5) 40%, transparent 70%)',
           opacity: scrollProgress > 0.3 && scrollProgress < 0.7 ? Math.min(1, (scrollProgress - 0.3) * 3) : 0,
-          filter: 'blur(30px)',
+          filter: 'blur(40px)',
           transition: 'opacity 500ms'
         }}
       />
