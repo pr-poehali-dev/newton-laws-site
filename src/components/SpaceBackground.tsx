@@ -123,86 +123,113 @@ const SpaceBackground = ({ scrollProgress }: SpaceBackgroundProps) => {
           animation: 'sputnikOrbit 25s linear infinite'
         }}
       >
-        <div className="relative" style={{ transform: 'rotate(-15deg)' }}>
+        <div className="relative" style={{ transform: 'rotate(10deg)' }}>
           <div 
             style={{
-              width: '32px',
-              height: '24px',
-              background: 'linear-gradient(135deg, rgba(240,240,250,1) 0%, rgba(200,200,220,0.95) 50%, rgba(160,160,190,0.9) 100%)',
-              borderRadius: '4px',
-              boxShadow: '0 0 15px 3px rgba(150,200,255,0.5), inset -2px -2px 6px rgba(0,0,0,0.2), inset 2px 2px 4px rgba(255,255,255,0.3)',
+              width: '20px',
+              height: '28px',
+              background: 'linear-gradient(180deg, rgba(230,230,245,1) 0%, rgba(200,200,220,0.95) 40%, rgba(180,180,210,0.9) 100%)',
+              borderRadius: '3px 3px 6px 6px',
+              boxShadow: '0 0 12px 2px rgba(120,150,255,0.4), inset -1px -2px 4px rgba(0,0,0,0.25), inset 1px 1px 3px rgba(255,255,255,0.4)',
               position: 'relative',
-              border: '1px solid rgba(180,180,220,0.6)'
+              border: '0.5px solid rgba(180,180,220,0.5)'
             }}
           >
             <div 
               style={{
                 position: 'absolute',
-                width: '6px',
-                height: '4px',
-                background: 'rgba(100,150,255,0.6)',
-                borderRadius: '1px',
-                top: '50%',
-                left: '50%',
-                transform: 'translate(-50%, -50%)',
-                boxShadow: '0 0 4px 1px rgba(100,150,255,0.4)'
-              }}
-            />
-          </div>
-          <div 
-            style={{
-              position: 'absolute',
-              top: '50%',
-              left: '-5px',
-              transform: 'translateY(-50%)',
-              width: '45px',
-              height: '32px',
-              background: 'linear-gradient(90deg, transparent 0%, rgba(100,150,255,0.15) 30%, rgba(100,150,255,0.25) 50%, rgba(100,150,255,0.15) 70%, transparent 100%)',
-              borderRadius: '50%',
-              border: '1px solid rgba(150,180,255,0.4)',
-              boxShadow: '0 0 10px 2px rgba(100,150,255,0.3)'
-            }}
-          />
-          <div 
-            style={{
-              position: 'absolute',
-              top: '50%',
-              right: '-5px',
-              transform: 'translateY(-50%)',
-              width: '45px',
-              height: '32px',
-              background: 'linear-gradient(90deg, transparent 0%, rgba(100,150,255,0.15) 30%, rgba(100,150,255,0.25) 50%, rgba(100,150,255,0.15) 70%, transparent 100%)',
-              borderRadius: '50%',
-              border: '1px solid rgba(150,180,255,0.4)',
-              boxShadow: '0 0 10px 2px rgba(100,150,255,0.3)'
-            }}
-          />
-          <div 
-            style={{
-              position: 'absolute',
-              top: '-10px',
-              left: '50%',
-              transform: 'translateX(-50%)',
-              width: '2px',
-              height: '18px',
-              background: 'linear-gradient(to bottom, rgba(200,200,230,0.9), rgba(200,200,230,0.5))',
-              boxShadow: '0 0 4px 1px rgba(150,150,255,0.3)'
-            }}
-          >
-            <div 
-              style={{
-                position: 'absolute',
-                top: '0',
+                width: '14px',
+                height: '8px',
+                background: 'linear-gradient(135deg, rgba(80,120,200,0.3), rgba(100,140,220,0.5))',
+                borderRadius: '2px',
+                top: '6px',
                 left: '50%',
                 transform: 'translateX(-50%)',
-                width: '8px',
-                height: '8px',
-                background: 'radial-gradient(circle, rgba(255,100,100,0.9), rgba(200,50,50,0.7))',
-                borderRadius: '50%',
-                boxShadow: '0 0 8px 2px rgba(255,100,100,0.6)'
+                boxShadow: '0 0 6px 1px rgba(100,140,220,0.3)',
+                border: '0.5px solid rgba(120,160,240,0.4)'
               }}
             />
           </div>
+          <div 
+            style={{
+              position: 'absolute',
+              top: '-3px',
+              left: '-28px',
+              width: '28px',
+              height: '18px',
+              background: 'linear-gradient(90deg, rgba(80,120,200,0.2) 0%, rgba(100,140,220,0.3) 50%, rgba(80,120,200,0.2) 100%)',
+              border: '1px solid rgba(120,160,240,0.5)',
+              boxShadow: '0 0 8px 1px rgba(100,140,220,0.25)',
+              transform: 'perspective(100px) rotateY(-15deg)',
+              borderRadius: '1px'
+            }}
+          >
+            <div style={{ 
+              position: 'absolute', 
+              inset: '2px', 
+              background: 'repeating-linear-gradient(90deg, transparent, transparent 4px, rgba(120,160,240,0.2) 4px, rgba(120,160,240,0.2) 5px)',
+              borderRadius: '1px'
+            }} />
+          </div>
+          <div 
+            style={{
+              position: 'absolute',
+              top: '-3px',
+              right: '-28px',
+              width: '28px',
+              height: '18px',
+              background: 'linear-gradient(90deg, rgba(80,120,200,0.2) 0%, rgba(100,140,220,0.3) 50%, rgba(80,120,200,0.2) 100%)',
+              border: '1px solid rgba(120,160,240,0.5)',
+              boxShadow: '0 0 8px 1px rgba(100,140,220,0.25)',
+              transform: 'perspective(100px) rotateY(15deg)',
+              borderRadius: '1px'
+            }}
+          >
+            <div style={{ 
+              position: 'absolute', 
+              inset: '2px', 
+              background: 'repeating-linear-gradient(90deg, transparent, transparent 4px, rgba(120,160,240,0.2) 4px, rgba(120,160,240,0.2) 5px)',
+              borderRadius: '1px'
+            }} />
+          </div>
+          <div 
+            style={{
+              position: 'absolute',
+              bottom: '-12px',
+              left: '50%',
+              transform: 'translateX(-50%)',
+              width: '1.5px',
+              height: '14px',
+              background: 'linear-gradient(to bottom, rgba(200,200,230,0.8), rgba(180,180,210,0.4))',
+            }}
+          >
+            <div 
+              style={{
+                position: 'absolute',
+                bottom: '-3px',
+                left: '50%',
+                transform: 'translateX(-50%)',
+                width: '0',
+                height: '0',
+                borderLeft: '4px solid transparent',
+                borderRight: '4px solid transparent',
+                borderTop: '6px solid rgba(200,200,230,0.7)',
+              }}
+            />
+          </div>
+          <div 
+            style={{
+              position: 'absolute',
+              top: '-8px',
+              left: '50%',
+              transform: 'translateX(-50%)',
+              width: '6px',
+              height: '6px',
+              background: 'radial-gradient(circle, rgba(255,220,100,1), rgba(255,180,80,0.8))',
+              borderRadius: '50%',
+              boxShadow: '0 0 10px 3px rgba(255,200,100,0.7)'
+            }}
+          />
         </div>
       </div>
     </>
