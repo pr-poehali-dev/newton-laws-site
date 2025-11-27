@@ -72,11 +72,11 @@ const SpaceBackground = ({ scrollProgress }: SpaceBackgroundProps) => {
           />
         );
       })}
-      {Array.from({ length: 8 }).map((_, i) => {
+      {Array.from({ length: 5 }).map((_, i) => {
         const startX = 20 + Math.random() * 60;
         const startY = 10 + Math.random() * 30;
-        const duration = 2 + Math.random() * 1.5;
-        const delay = i * 1.5 + Math.random() * 2;
+        const duration = 3.5 + Math.random() * 2;
+        const delay = i * 3 + Math.random() * 4;
         return (
           <div
             key={`meteor-${i}`}
