@@ -64,7 +64,7 @@ const SpaceBackground = ({ scrollProgress }: SpaceBackgroundProps) => {
               height: size + 'px',
               top: topPos + '%',
               left: leftPos + '%',
-              opacity: Math.max(0, Math.min(1, (0.3 - scrollProgress) * 3)),
+              opacity: Math.max(0, Math.min(1, (0.2 - scrollProgress) * 5)),
               animation: `twinkle ${animDuration}s infinite`,
               transition: 'opacity 800ms ease-out',
               willChange: 'opacity'
