@@ -79,7 +79,7 @@ const ContentSections = ({ visibleSections, scrollProgress, scrollToSection }: C
     {
       title: 'Видеоопыт по первому закону Ньютона',
       url: 'https://cdn.poehali.dev/projects/ed403ce0-4a68-4081-894e-268aa095093d/bucket/3968060d-d0d8-428a-b7fc-283bf3a6d877.mp4',
-      description: 'Понятное объяснение всех трёх законов Ньютона с наглядными примерами',
+      description: 'Наглядный эксперимент показывающий работу первого закона',
       isFile: true
     },
     {
