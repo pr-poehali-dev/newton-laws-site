@@ -83,10 +83,10 @@ const ContentSections = ({ visibleSections, scrollProgress, scrollToSection }: C
       isFile: true
     },
     {
-      title: 'Эксперименты с законами Ньютона',
-      url: 'https://www.youtube.com/embed/1ksm2u0AAII',
-      description: 'Интересные физические эксперименты, демонстрирующие законы механики',
-      isFile: false
+      title: 'Видеоопыт по второму закону Ньютона',
+      url: 'https://cdn.poehali.dev/projects/ed403ce0-4a68-4081-894e-268aa095093d/bucket/a09684da-713f-498a-88f2-f6d93823e21c.mp4',
+      description: 'Наглядный пример работы второго закона',
+      isFile: true
     }
   ];
 
