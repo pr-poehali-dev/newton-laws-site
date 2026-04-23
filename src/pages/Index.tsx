@@ -4,6 +4,7 @@ import Navigation from '@/components/Navigation';
 import ContentSections from '@/components/ContentSections';
 import FallingApple from '@/components/FallingApple';
 import Ground from '@/components/Ground';
+import Road from '@/components/Road';
 
 const Index = () => {
   const [activeSection, setActiveSection] = useState('home');
@@ -52,6 +53,7 @@ const Index = () => {
     <div className="min-h-screen bg-white relative">
       <SpaceBackground scrollProgress={scrollProgress} />
       <Ground scrollProgress={scrollProgress} />
+      <Road scrollProgress={scrollProgress} />
       <FallingApple scrollProgress={scrollProgress} />
       <Navigation 
         activeSection={activeSection} 

@@ -136,6 +136,24 @@
   }
 }
 
+@keyframes carDrive {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(100vw + 240px));
+  }
+}
+
+@keyframes wheelSpin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 @keyframes sputnikOrbit {
   0% {
     transform: translate(0, 0) rotate(0deg);
