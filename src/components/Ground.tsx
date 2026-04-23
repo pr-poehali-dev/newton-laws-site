@@ -291,7 +291,7 @@ const Ground = ({ scrollProgress }: GroundProps) => {
         opacity,
         transition: 'opacity 600ms ease-out',
         zIndex: 1,
-        height: '360px',
+        height: '460px',
         display: visible ? 'block' : 'none'
       }}
     >
@@ -301,7 +301,7 @@ const Ground = ({ scrollProgress }: GroundProps) => {
           className="absolute"
           style={{
             left: tree.left,
-            bottom: '55px',
+            bottom: '150px',
             width: `${tree.size * 0.6}px`,
             height: `${tree.size}px`,
             transform: `translateY(${(1 - opacity) * 40}px)`,
@@ -312,8 +312,9 @@ const Ground = ({ scrollProgress }: GroundProps) => {
         </div>
       ))}
       <div
-        className="absolute bottom-0 left-0 right-0"
+        className="absolute left-0 right-0"
         style={{
+          bottom: '95px',
           height: '80px',
           background:
             'linear-gradient(to bottom, rgba(139,100,60,0) 0%, #8b6a3a 15%, #6b4d24 40%, #4a3518 70%, #2e2010 100%)',

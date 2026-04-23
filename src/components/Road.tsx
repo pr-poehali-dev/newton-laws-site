@@ -190,7 +190,7 @@ const Road = ({ scrollProgress }: RoadProps) => {
         tail: '#c91a2c',
         glow: 'rgba(255,50,50,0.7)'
       },
-      duration: 11,
+      duration: 15,
       delay: 0,
       direction: 'right',
       scale: 1
@@ -205,8 +205,8 @@ const Road = ({ scrollProgress }: RoadProps) => {
         tail: '#c91a2c',
         glow: 'rgba(255,50,50,0.7)'
       },
-      duration: 14,
-      delay: 4,
+      duration: 15,
+      delay: 5,
       direction: 'right',
       scale: 0.9
     },
@@ -220,8 +220,8 @@ const Road = ({ scrollProgress }: RoadProps) => {
         tail: '#c91a2c',
         glow: 'rgba(255,50,50,0.7)'
       },
-      duration: 10,
-      delay: 2,
+      duration: 14,
+      delay: 0,
       direction: 'left',
       scale: 0.95
     },
@@ -235,8 +235,8 @@ const Road = ({ scrollProgress }: RoadProps) => {
         tail: '#c91a2c',
         glow: 'rgba(255,50,50,0.7)'
       },
-      duration: 13,
-      delay: 6,
+      duration: 14,
+      delay: 7,
       direction: 'left',
       scale: 0.9
     },
@@ -250,8 +250,8 @@ const Road = ({ scrollProgress }: RoadProps) => {
         tail: '#c91a2c',
         glow: 'rgba(255,50,50,0.7)'
       },
-      duration: 16,
-      delay: 8,
+      duration: 15,
+      delay: 10,
       direction: 'right',
       scale: 1.05
     }
