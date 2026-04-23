@@ -38,7 +38,8 @@ const Car = ({ colors, duration, delay, direction, bottom, scale }: CarProps) =>
         height: `${height}px`,
         animation: `${direction === 'right' ? 'carDrive' : 'carDriveReverse'} ${duration}s linear ${delay}s infinite`,
         filter: 'drop-shadow(0 8px 12px rgba(0,0,0,0.5))',
-        transform: direction === 'left' ? 'scaleX(-1)' : undefined
+        transform: direction === 'left' ? 'scaleX(-1)' : undefined,
+        zIndex: direction === 'right' ? 2 : 1
       }}
     >
       <div
