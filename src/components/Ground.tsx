@@ -7,13 +7,12 @@ const Ground = ({ scrollProgress }: GroundProps) => {
   const opacity = Math.min(1, Math.max(0, (scrollProgress - 0.75) * 5));
 
   const trees = [
-    { left: '5%', size: 110, delay: 0 },
-    { left: '18%', size: 90, delay: 0.05 },
-    { left: '32%', size: 130, delay: 0.1 },
-    { left: '48%', size: 100, delay: 0.15 },
-    { left: '62%', size: 120, delay: 0.2 },
-    { left: '76%', size: 95, delay: 0.25 },
-    { left: '88%', size: 115, delay: 0.3 }
+    { left: '3%', size: 200, delay: 0 },
+    { left: '15%', size: 170, delay: 0.05 },
+    { left: '28%', size: 220, delay: 0.1 },
+    { left: '42%', size: 185, delay: 0.15 },
+    { left: '56%', size: 210, delay: 0.2 },
+    { left: '68%', size: 175, delay: 0.25 }
   ];
 
   return (
@@ -23,7 +22,7 @@ const Ground = ({ scrollProgress }: GroundProps) => {
         opacity,
         transition: 'opacity 600ms ease-out',
         zIndex: 1,
-        height: '220px',
+        height: '320px',
         display: visible ? 'block' : 'none'
       }}
     >
